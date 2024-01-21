@@ -50,14 +50,21 @@
 <body>
     <form action="{{ route('store')}}" method="post">
         @csrf 
+        @foreach ($product_size as $size)
+        @if($size == NULL)
+        
+  
 
-    @foreach ($product_size as $size)
-    <div class="button">
-        <input type="radio" id="{{ $size}}" name="size" value="{{ $size}}"/>
-        <label class="btn btn-default" for="{{ $size}}">{{ $size}}</label>
-      </div>
+        @else 
+     
+      <div class="button">
+          <input type="radio" id="{{ $size}}" name="size" value="{{ $size}}"/>
+          <label class="btn btn-default" for="{{ $size}}">{{ $size}}</label>
+        </div>
+       
+
+      @endif
       @endforeach
-
       <div class="col-md-4 mb-3">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
